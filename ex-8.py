@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Title of the app
-st.title('Interactive Streamlit App')
+st.title('Virtual Learning Survey')
 
 # Header
 st.header('Explore Different Features')
