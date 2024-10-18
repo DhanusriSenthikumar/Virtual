@@ -1,28 +1,43 @@
 import streamlit as st
 
 # Title of the app
-st.title('Simple Streamlit App')
+st.title('Interactive Streamlit App')
 
-# Subtitle
-st.subheader('Welcome to this simple app')
+# Header
+st.header('Explore Different Features')
 
-# Input field for user text
-user_input = st.text_input('Enter your name:')
+# Text input with a placeholder
+name = st.text_input('What’s your name?', placeholder='Type your name here')
 
-# Display the entered name
-if user_input:
-    st.write(f'Hello, {user_input}!')
+# Display greeting based on input
+if name:
+    st.success(f'Nice to meet you, {name}!')
 
-# Number slider
-number = st.slider('Pick a number', 0, 100, 50)
+# Radio buttons to choose a favorite color
+color = st.radio("What's your favorite color?", ('Red', 'Green', 'Blue'))
 
-# Display the number
-st.write(f'You selected: {number}')
+# Display color selection
+st.write(f'You chose: {color}')
 
-# Button action
-if st.button('Click me!'):
-    st.write('Button clicked!')
+# Number input instead of a slider
+age = st.number_input('Enter your age', min_value=0, max_value=120, value=18)
 
-# Sidebar example
-st.sidebar.title('Sidebar')
-st.sidebar.write('This is a sidebar example.')
+# Display the age entered
+st.info(f'You are {age} years old.')
+
+# Toggle switch
+like_coding = st.checkbox('Do you like coding?')
+
+if like_coding:
+    st.balloons()  # Fun element
+    st.write("That's awesome! Keep coding!")
+
+# Button with action
+if st.button('Submit'):
+    st.write('Thank you for your input!')
+
+# Sidebar with a selectbox
+st.sidebar.title('Additional Options')
+option = st.sidebar.selectbox('Select your mood:', ['Happy', 'Neutral', 'Sad'])
+
+st.sidebar.write(f'You are feeling: {option}')
